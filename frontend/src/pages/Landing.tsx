@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import Navbar from "../components/Navbar";
 import StatsBadge from "../components/StatsBadge";
 
@@ -7,7 +8,6 @@ export default function Landing() {
     <div style={{ position: "relative", minHeight: "100vh", padding: "0 24px" }}>
       <Navbar />
       <section
-      
         style={{
           display: "flex",
           flexDirection: "column",
@@ -25,6 +25,7 @@ export default function Landing() {
             fontSize: "14px",
             color: "var(--accent-primary)",
             marginBottom: "24px",
+            animation: "slide-in-right 0.6s ease-out",
           }}
         >
           Real-time · No refresh · No paper slips
@@ -37,6 +38,7 @@ export default function Landing() {
             lineHeight: "1.1",
             marginBottom: "16px",
             maxWidth: "800px",
+            animation: "slide-in-right 0.8s ease-out",
           }}
         >
           Clinics run on chaos.
@@ -50,6 +52,7 @@ export default function Landing() {
             fontWeight: 300,
             maxWidth: "520px",
             marginBottom: "32px",
+            animation: "slide-in-right 1s ease-out",
           }}
         >
           Millions of clinics across India still rely on paper tokens and manual calling. Queue Cure
@@ -57,21 +60,45 @@ export default function Landing() {
           receptionists, designed for patients.
         </p>
         <div
-          style={{ display: "flex", gap: "16px", flexWrap: "wrap", justifyContent: "center" }}
+          style={{ display: "flex", gap: "16px", flexWrap: "wrap", justifyContent: "center", animation: "slide-in-right 1.2s ease-out" }}
         >
           <Link
             to="/receptionist"
-            className="pill-button pill-button-primary"
-            style={{ padding: "14px 32px", fontSize: "16px" }}
+            className="pill-button liquid-glass-strong"
+            style={{
+              padding: "12px 24px",
+              fontSize: "14px",
+              fontWeight: 500,
+              color: "white",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              textDecoration: "none",
+            }}
           >
-            Open Receptionist View →
+            <span>Open Receptionist View</span>
+            <ArrowUpRight style={{ width: "20px", height: "20px" }} />
           </Link>
           <Link
             to="/patient"
-            className="pill-button pill-button-secondary"
-            style={{ padding: "14px 32px", fontSize: "16px" }}
+            style={{
+              padding: "12px 24px",
+              fontSize: "14px",
+              fontWeight: 500,
+              color: "black",
+              backgroundColor: "white",
+              borderRadius: "999px",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              textDecoration: "none",
+              transition: "background-color 0.3s ease",
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.9)"}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "white"}
           >
-            Patient Waiting Room →
+            Patient Waiting Room
+            <ArrowUpRight style={{ width: "16px", height: "16px" }} />
           </Link>
         </div>
         <p
@@ -109,36 +136,24 @@ export default function Landing() {
             gap: "24px",
           }}
         >
-          <div className="glass-card feature-card" style={{ padding: "32px" }}>
-            <div style={{ fontSize: "48px", marginBottom: "16px" }}>🏥</div>
-            <h3 style={{ fontSize: "20px", marginBottom: "8px" }}>
-              Receptionist adds patients
-            </h3>
-            <p style={{ color: "var(--text-muted)", lineHeight: "1.6" }}>
-              Enter name, assign token. Set average consultation time. One click to
-              call next.
-            </p>
-          </div>
-          <div className="glass-card feature-card" style={{ padding: "32px" }}>
-            <div style={{ fontSize: "48px", marginBottom: "16px" }}>⚡</div>
-            <h3 style={{ fontSize: "20px", marginBottom: "8px" }}>
-              Queue updates instantly
-            </h3>
-            <p style={{ color: "var(--text-muted)", lineHeight: "1.6" }}>
-              Socket.io pushes live updates to every connected screen — no polling,
-              no refresh.
-            </p>
-          </div>
-          <div className="glass-card feature-card" style={{ padding: "32px" }}>
-            <div style={{ fontSize: "48px", marginBottom: "16px" }}>🧍</div>
-            <h3 style={{ fontSize: "20px", marginBottom: "8px" }}>
-              Patients see their wait
-            </h3>
-            <p style={{ color: "var(--text-muted)", lineHeight: "1.6" }}>
-              Current token, position in queue, and a real estimated wait time — not
-              a guess.
-            </p>
-          </div>
+          {[
+            { icon: "🏥", title: "Receptionist adds patients", desc: "Enter name, assign token. Set average consultation time. One click to call next." },
+            { icon: "⚡", title: "Queue updates instantly", desc: "Socket.io pushes live updates to every connected screen — no polling, no refresh." },
+            { icon: "🧍", title: "Patients see their wait", desc: "Current token, position in queue, and a real estimated wait time — not a guess." },
+          ].map((feature, i) => (
+            <div
+              key={i}
+              className="glass-card feature-card"
+              style={{
+                padding: "32px",
+                animation: `slide-in-right ${1.4 + i * 0.2}s ease-out`
+              }}
+            >
+              <div style={{ fontSize: "48px", marginBottom: "16px" }}>{feature.icon}</div>
+              <h3 style={{ fontSize: "20px", marginBottom: "8px" }}>{feature.title}</h3>
+              <p style={{ color: "var(--text-muted)", lineHeight: "1.6" }}>{feature.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
       <section
@@ -185,17 +200,41 @@ export default function Landing() {
         >
           <Link
             to="/receptionist"
-            className="pill-button pill-button-primary"
-            style={{ padding: "14px 32px", fontSize: "16px" }}
+            className="pill-button liquid-glass-strong"
+            style={{
+              padding: "12px 24px",
+              fontSize: "14px",
+              fontWeight: 500,
+              color: "white",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              textDecoration: "none",
+            }}
           >
-            Open Receptionist View →
+            <span>Open Receptionist View</span>
+            <ArrowUpRight style={{ width: "20px", height: "20px" }} />
           </Link>
           <Link
             to="/patient"
-            className="pill-button pill-button-secondary"
-            style={{ padding: "14px 32px", fontSize: "16px" }}
+            style={{
+              padding: "12px 24px",
+              fontSize: "14px",
+              fontWeight: 500,
+              color: "black",
+              backgroundColor: "white",
+              borderRadius: "999px",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              textDecoration: "none",
+              transition: "background-color 0.3s ease",
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.9)"}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "white"}
           >
-            Patient Waiting Room →
+            Patient Waiting Room
+            <ArrowUpRight style={{ width: "16px", height: "16px" }} />
           </Link>
         </div>
         <footer

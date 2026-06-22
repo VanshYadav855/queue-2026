@@ -136,6 +136,8 @@ io.on("connection", (socket) => {
     queue = queue.filter((p) =>
       p.status === "waiting" || p.status === "current"
     );
+    // Reset token counter to current maximum token or 0 if no patients
+    tokenCounter = queue.length > 0 ? Math.max(...queue.map(p => p.token)) : 0;
     io.emit("queue_update", getState());
   });
 });

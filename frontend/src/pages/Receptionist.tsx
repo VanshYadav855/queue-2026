@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import QueueCard from "../components/QueueCard";
 import socket from "../socket";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
+
 interface Patient {
   token: number;
   name: string;
@@ -26,7 +28,7 @@ export default function Receptionist() {
 
   useEffect(() => {
     // Fetch initial state on mount
-    fetch("http://localhost:3001/state")
+    fetch(`${BACKEND_URL}/state`)
       .then(res => res.json())
       .then(data => {
         setQueue(data.queue);
