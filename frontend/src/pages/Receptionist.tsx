@@ -2,14 +2,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import QueueCard from "../components/QueueCard";
 import socket from "../socket";
+import type { Patient } from "../mockData";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
-
-interface Patient {
-  token: number;
-  name: string;
-  status: "called" | "current" | "waiting" | "skipped";
-}
 
 export default function Receptionist() {
   const [queue, setQueue] = useState<Patient[]>([]);

@@ -1,13 +1,8 @@
 import { useState, useEffect } from "react";
 import socket from "../socket";
+import type { Patient } from "../mockData";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
-
-interface Patient {
-  token: number;
-  name: string;
-  status: "called" | "current" | "waiting" | "skipped";
-}
 
 const formatName = (name: string) => {
   const parts = name.trim().split(" ");
