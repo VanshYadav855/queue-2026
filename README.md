@@ -79,18 +79,7 @@ Both sync in real-time via **WebSockets** — no refresh needed!
 
 ## 🏗️ Architecture
 ```
-┌─────────────────────┐         ┌──────────────────────┐         ┌─────────────────────┐
-│  Receptionist       │         │   Node.js Server     │         │  Patient            │
-│  (React Client)     │         │   (Express +         │         │  (React Client)     │
-│                     │         │    Socket.io)        │         │                     │
-│  add_patient ──────────────►  │                      │         │                     │
-│  call_next ────────────────►  │  In-memory state:    │         │                     │
-│  set_avg_time ─────────────►  │  - queue[]           │         │  connect ──────────►│
-│  skip_patient ─────────────►  │  - currentToken      │         │                     │
-│                     │         │  - avgTime           │         │                     │
-│  ◄────────────────────────  queue_update (broadcast) ──────────────────────────────► │
-│                     │         │                      │         │                     │
-└─────────────────────┘         └──────────────────────┘         └─────────────────────┘
+
 ```
 
 ### 📡 Socket Events
