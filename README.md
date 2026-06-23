@@ -5,19 +5,29 @@
 </p>
 
 <p align="center">
-  <a href="https://vansh-queue-2026.vercel.app">
+  <a href="https://queue-2026-haxa.vercel.app/">
     <img src="https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo">
   </a>
-  <a href="https://github.com">
+  <a href="https://github.com/vanshyadav/queue-2026">
     <img src="https://img.shields.io/badge/Repository-GitHub-181717?style=for-the-badge&logo=github" alt="Repository">
   </a>
-  <a href="https://wooble.io">
+  <a href="https://wooble.org/hackathon/queue-cure-26">
     <img src="https://img.shields.io/badge/Built%20for-Wooble-FF6B35?style=for-the-badge" alt="Wooble Hackathon">
   </a>
 </p>
 
 <p align="center">
   Replace paper token slips with live, synchronized queue management — built for Queue Cure '26 Hackathon.
+</p>
+
+<p align="center">
+  <a href="https://queue-2026-haxa.vercel.app/">
+    <img src="docs/images/home-page-screenshot.png" alt="Home Page Screenshot" width="800">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://queue-2026-haxa.vercel.app/">https://queue-2026-haxa.vercel.app/</a>
 </p>
 
 ---
