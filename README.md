@@ -102,6 +102,8 @@ Both sync in real-time via **WebSockets** — no refresh needed!
 | `skip_patient` | Client → Server | Mark a patient as no-show and advance                     |
 | `queue_update` | Server → ALL    | Broadcast full state to every connected client            |
 
+![Socket Events Diagram](docs/images/socket-events-diagram.png)
+
 ### ⏱️ Wait Time Formula
 ```
 Estimated Wait = Tokens Ahead × Avg. Consultation Time
